@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ZitecSoundResetService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RestartBrowserTimeout" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">120000</Value>
+    </Setting>
+    <Setting Name="BrowserWaitLoadTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">30000</Value>
+    </Setting>
+    <Setting Name="MinVolumeThreshold" Type="System.Single" Scope="User">
+      <Value Profile="(Default)">0.1</Value>
+    </Setting>
+    <Setting Name="YoutubePlaylistFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">playlist.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
