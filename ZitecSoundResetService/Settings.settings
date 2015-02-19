@@ -15,7 +15,7 @@
       <Value Profile="(Default)">playlist.txt</Value>
     </Setting>
     <Setting Name="CheckInterval" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+      <Value Profile="(Default)">2000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

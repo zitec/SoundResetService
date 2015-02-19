@@ -8,7 +8,7 @@ using System.Linq;
 using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
-using System.Timers;
+using System.Windows.Forms;
 
 namespace ZitecSoundResetService
 {
@@ -25,8 +25,13 @@ namespace ZitecSoundResetService
         {
             InitializeComponent();
 
-            _settings = settings;
-            _browserRestarter = new BrowserRestarter(_settings.BrowserWaitLoadTime, _settings.YoutubePlaylistFile);
+            _settings = settings;            
+            _browserRestarter = new BrowserRestarter(_settings.BrowserWaitLoadTime, _settings.YoutubePlaylistFile);            
+        }
+
+        public void Start()
+        {
+            OnStart(null);
         }
 
         protected override void OnStart(string[] args)
@@ -39,10 +44,11 @@ namespace ZitecSoundResetService
 
             // the object that will generate events at regulat intervals
             _timer.Interval = _settings.CheckInterval;
-            _timer.Elapsed += OnTick;
+            _timer.Tick += OnTick;
+            _timer.Start();
         }
 
-        private void OnTick(object sender, ElapsedEventArgs e)
+        private void OnTick(object sender, EventArgs e)
         {
             float currentAudioLevel = _soundDevice.AudioMeterInformation.MasterPeakValue;
 

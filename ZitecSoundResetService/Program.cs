@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ZitecSoundResetService
 {
@@ -14,14 +16,23 @@ namespace ZitecSoundResetService
         /// </summary>
         static void Main()
         {
+            var service =  new SoundResetService(Settings.Default);
+
             ServiceBase[] ServicesToRun;
 
             ServicesToRun = new ServiceBase[] 
             { 
-                new SoundResetService(Settings.Default)
+               service,
             };
 
-            ServiceBase.Run(ServicesToRun);
+            service.Start();
+
+            while(true)
+            {
+                Thread.Sleep(1000);
+                Application.DoEvents();
+            }
+            //ServiceBase.Run(ServicesToRun);
         }
     }
 }
