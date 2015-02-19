@@ -38,9 +38,9 @@ namespace ZitecSoundResetService {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("30000")]
-        public string BrowserWaitLoadTime {
+        public int BrowserWaitLoadTime {
             get {
-                return ((string)(this["BrowserWaitLoadTime"]));
+                return ((int)(this["BrowserWaitLoadTime"]));
             }
             set {
                 this["BrowserWaitLoadTime"] = value;
@@ -68,6 +68,18 @@ namespace ZitecSoundResetService {
             }
             set {
                 this["YoutubePlaylistFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public int CheckInterval {
+            get {
+                return ((int)(this["CheckInterval"]));
+            }
+            set {
+                this["CheckInterval"] = value;
             }
         }
     }
