@@ -15,22 +15,22 @@ namespace ZitecSoundResetService
         /// </summary>
         static void Main()
         {
-            var service =  new SoundResetService(Settings.Default);
-
-            ServiceBase[] ServicesToRun;
-
-            ServicesToRun = new ServiceBase[] 
-            { 
-               service,
-            };
-
-            service.Start();
-
-            while(true)
+            try
             {
-                Thread.Sleep(1000);
+                var service =  new SoundResetService(Settings.Default);
+
+                ServiceBase[] ServicesToRun;
+
+                ServicesToRun = new ServiceBase[] 
+                { 
+                   service,
+                };
+                ServiceBase.Run(ServicesToRun);
             }
-            //ServiceBase.Run(ServicesToRun);
+            catch(Exception e)
+            {
+                Logger.LogLine("Exception at {0}", e.ToString());
+            }
         }
     }
 }

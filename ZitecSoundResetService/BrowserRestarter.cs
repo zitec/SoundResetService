@@ -28,8 +28,9 @@ namespace ZitecSoundResetService
         /// <param name="playlistFile">The file containing the playlists</param>
         public BrowserRestarter(int browserWaitLoadTime, string playlistFile)
         {
-            _browserWaitLoadTime = browserWaitLoadTime;
+            playlistFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, playlistFile);
 
+            _browserWaitLoadTime = browserWaitLoadTime;            
             _youtubeLinks = File.ReadAllLines(playlistFile);
 
             Logger.LogLine("Loaded {0} links from {1} file.", _youtubeLinks.Length, playlistFile);
@@ -62,10 +63,18 @@ namespace ZitecSoundResetService
 
             Logger.LogLine("Starting browser at: {0}", randomLink);
 
-            Process.Start(randomLink);
+            StartProcess(randomLink);
 
             // wait for the browser to stream some muisc
             Thread.Sleep(_browserWaitLoadTime);
+        }
+
+        private void StartProcess(string link)
+        {
+            ProcessStartInfo info = new ProcessStartInfo(link);
+            info.CreateNoWindow = true;
+            info.UseShellExecute = false;
+            Process.Start(info);
         }
 
         private string GetRandomYoutubeLink()
