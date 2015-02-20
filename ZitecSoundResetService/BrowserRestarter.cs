@@ -63,18 +63,10 @@ namespace ZitecSoundResetService
 
             Logger.LogLine("Starting browser at: {0}", randomLink);
 
-            StartProcess(randomLink);
+            Process.Start(randomLink);
 
             // wait for the browser to stream some muisc
             Thread.Sleep(_browserWaitLoadTime);
-        }
-
-        private void StartProcess(string link)
-        {
-            ProcessStartInfo info = new ProcessStartInfo(link);
-            info.CreateNoWindow = true;
-            info.UseShellExecute = false;
-            Process.Start(info);
         }
 
         private string GetRandomYoutubeLink()

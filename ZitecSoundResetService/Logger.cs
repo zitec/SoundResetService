@@ -9,7 +9,7 @@ namespace ZitecSoundResetService
 {
     public static class Logger
     {
-        private static StreamWriter _fileStream = File.AppendText("log.txt");
+        private static StreamWriter _fileStream = File.AppendText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log.txt"));
 
         static Logger()
         {
