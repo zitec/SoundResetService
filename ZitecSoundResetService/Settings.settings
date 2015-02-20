@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="RestartBrowserTimeout" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">120000</Value>
+      <Value Profile="(Default)">60000</Value>
     </Setting>
     <Setting Name="BrowserWaitLoadTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">30000</Value>
+      <Value Profile="(Default)">10000</Value>
     </Setting>
     <Setting Name="MinVolumeThreshold" Type="System.Single" Scope="User">
       <Value Profile="(Default)">0.1</Value>
