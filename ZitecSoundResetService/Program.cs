@@ -17,20 +17,19 @@ namespace ZitecSoundResetService
         {
             try
             {
-                var service =  new SoundResetService(Settings.Default);
-
-                ServiceBase[] ServicesToRun;
-
-                ServicesToRun = new ServiceBase[] 
-                { 
-                   service,
-                };
-                ServiceBase.Run(ServicesToRun);
+                StartSoundListener();
             }
             catch(Exception e)
             {
                 Logger.LogLine("Exception at {0}", e.ToString());
             }
+        }
+
+        private static void StartSoundListener()
+        {
+            SoundListener listener = new SoundListener(Settings.Default);
+
+            listener.BeginListen();
         }
     }
 }

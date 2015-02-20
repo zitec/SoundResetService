@@ -28,10 +28,8 @@ namespace ZitecSoundResetService
         {
             Thread thread = new Thread(() => OnStart());
 
+            thread.IsBackground = false;
             thread.Name = "Sound listening thread";
-
-            _settings.BrowserWaitLoadTime = 4000;
-            _settings.RestartBrowserTimeout = 6000;
 
             thread.Start();
         }
