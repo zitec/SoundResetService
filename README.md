@@ -2,7 +2,7 @@
 Sound Reset Service
 =================
 
-A lightweight .NET console application that keep the music rolling using browsers.
+A lightweight .NET console application that keeps the music rolling using browsers.
 
 How does it work
 ----------------------
